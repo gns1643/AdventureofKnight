@@ -6,9 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     float h;
     float v;
-    Vector3 dirvec;
-    bool isHorizonMove;
-    Rigidbody2D rigid;
+    publlic int facing
+    public Rigidbody2D rigid;
+    public Animator anim;
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -19,39 +19,16 @@ public class PlayerMovement : MonoBehaviour
     {
         h = Input.GetAxisRaw("Horizontal");
         v = Input.GetAxisRaw("Vertical");
-        bool hDown =  Input.GetButtonDown("Horizontal");
-        bool vDown = Input.GetButtonDown("Vertical");
-        bool hUp =  Input.GetButtonUp("Horizontal");
-        bool vUp = Input.GetButtonUp("Vertical");
 
-        if (hDown || vUp)
-        {
-            isHorizonMove = true;
-        }
-        else if (vDown || hUp)
-        {
-            isHorizonMove = false;
-        }
-
-        if (vDown && v == 1)
-            dirvec = Vector3.up;
-        //방향 : 하
-        if (vDown && v == -1)
-            dirvec = Vector3.down;
-        //방향 : 상
-        if (hDown && h == -1)
-            dirvec = Vector3.left;
-        //방향 : 상
-        if (hDown && h == 1)
-            dirvec = Vector3.right;
     }
     private void FixedUpdate()
     {
-        Vector2 moveVec = isHorizonMove ?
-            new Vector2(h, 0) :
-            new Vector2(0, v);
+        Vector2 moveVec = new Vector2(h, v).normalized;
         rigid.linearVelocity = moveVec * 5;
 
-        Debug.Log("속도: " + rigid.linearVelocity); // ← 여기에 주목
+        anim.SetInteger("IntH", Mathf.Abs((int)h));
+        anim.SetInteger("IntV", Mathf.Abs((int)v));
+
+        Debug.Log(h + " " + v);
     }
 }
