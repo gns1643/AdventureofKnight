@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     float h;
     float v;
-    //publlic int facing
+    public int facingDirection = 1;
     public Rigidbody2D rigid;
     public Animator anim;
     void Start()
@@ -24,11 +25,23 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 moveVec = new Vector2(h, v).normalized;
-        rigid.linearVelocity = moveVec * 5;
+        
+        if(h > 0 && transform.localScale.x <0 ||
+            h < 0 && transform.localScale.x > 0)
+        {
+            Flip();
+        }
+
 
         anim.SetInteger("IntH", Mathf.Abs((int)h));
         anim.SetInteger("IntV", Mathf.Abs((int)v));
-
+        rigid.linearVelocity = moveVec * 5;
         Debug.Log(h + " " + v);
+    }
+    void Flip()
+    {
+        facingDirection += -1;
+        transform.localScale = new Vector3(transform.localScale.x * -1,
+            transform.localScale.y, transform.localScale.z);
     }
 }
