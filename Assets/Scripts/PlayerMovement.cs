@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     float h;
     float v;
-    publlic int facing
+    //publlic int facing
     public Rigidbody2D rigid;
     public Animator anim;
     void Start()
