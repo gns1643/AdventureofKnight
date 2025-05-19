@@ -85,7 +85,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.8, y: 0.93}
+  m_Size: {x: 1.25, y: 1.453125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523c090ebb4adfc4c9353c0d284f3224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facingDirection: 1
   rigid: {fileID: 6092090144641333215}
   anim: {fileID: 2993728726009559371}
 --- !u!95 &2993728726009559371
