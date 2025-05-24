@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4061250490144603721}
   - component: {fileID: 2394516666742821438}
   - component: {fileID: 4866398598782397172}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_Torch
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -232,5 +232,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 607be804b041208458d189eb8e3f9577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 1
-  maxHealth: 1
+  currentHealth: 5
+  maxHealth: 5

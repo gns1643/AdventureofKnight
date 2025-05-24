@@ -35,12 +35,10 @@ public class Ground_Reposition : MonoBehaviour
                 }
                 else if (diffX > diffY)
                 {
-                    Debug.Log("x축이동" + dirX);
                     transform.Translate(Vector3.right * dirX * 64, Space.World);
                 }
                 else if (diffX < diffY)
                 {
-                    Debug.Log("y축이동" + dirY);
                     transform.Translate(Vector3.up * dirY * 64, Space.World);
                 }
 
@@ -48,7 +46,6 @@ public class Ground_Reposition : MonoBehaviour
             case "Enemy":
                 if (coll.enabled)
                 {
-                    Debug.Log("Enemy Reposition!");
                     transform.Translate(playerDir * 32 + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0f));
 
                 }

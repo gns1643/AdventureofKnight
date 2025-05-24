@@ -11,9 +11,12 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rigid;
     public Animator anim;
     public Vector2 moveVec;
+
+    public Scanner scanner;
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        scanner = GetComponent<Scanner>();
     }
 
     // Update is called once per frame
